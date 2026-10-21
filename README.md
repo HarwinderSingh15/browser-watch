@@ -73,3 +73,7 @@ Each time you send a prompt, the hook adds the current page's full text (if it c
 - **Server problems**: the log is `~/.browser-watch/server.log`. Restart with `launchctl kickstart -k gui/$(id -u)/com.browserwatch.server`. If you upgrade or switch Node versions (for example with nvm), run `./install.sh` again so it uses the new `node`.
 - To reset the log, delete `~/.browser-watch/events.jsonl` and `~/.browser-watch/hook-offset`.
 # browser-watch
+
+## License
+
+MIT. See [LICENSE](LICENSE).
