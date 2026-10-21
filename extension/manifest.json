@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Browser Watch for Claude",
+  "version": "0.1.0",
+  "description": "Streams new chat messages and screen changes from sites you choose to a local server for Claude Code.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Browser Watch"
+  }
+}

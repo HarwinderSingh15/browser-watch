@@ -31,7 +31,8 @@ On Windows or Linux, run `node server.js` yourself, and copy `skill/browser` to 
 
 - **Watch every site** saves the text of every site you open, including email, chat, HR and admin panels. The popup shows a warning on sites that often hold private information (email, banking, payments, HR, password managers). Click **Stop watching this site** on any site you don't want captured.
 - Password, card, token and one-time-code fields are never captured. Other text boxes are captured only on sites where you turn that on.
-- Saved text is deleted after 7 days.
+- Saved text is deleted after 7 days, and only your user account can read it (folder `700`, files `600`).
+- Captured data never lives in this repo, and `.gitignore` blocks it (plus logs, backups, `.env` files and extension signing keys) in case it ever lands here.
 - Page text is written by whoever made the page or sent the message, so a page could contain instructions meant to trick Claude. The `/browser` skill and the prompt hook tell Claude to treat page text as data, never as instructions. Still, check what Claude proposes before letting it act on something it read in the browser.
 
 ## Using it from Claude Code

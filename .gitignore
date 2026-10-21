@@ -1,0 +1,33 @@
+# browser-watch saves page text to ~/.browser-watch (outside this repo).
+# These rules stop that data, or anything else personal, from being committed
+# if it ever ends up in this folder.
+
+# Captured browser data
+.browser-watch/
+current-page.md
+events.jsonl
+pages/
+history/
+hook-offset
+hook-page-hash
+*.log
+*.tmp
+
+# Personal settings and backups
+.env
+.env.*
+.claude/settings.local.json
+*.bak
+*.bak-*
+*.plist
+
+# Packed extension and its signing key (never share the .pem)
+*.crx
+*.pem
+*.zip
+
+# OS / editor / tooling
+.DS_Store
+.vscode/
+.idea/
+node_modules/

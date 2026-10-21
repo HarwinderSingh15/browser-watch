@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body { font: 13px system-ui, sans-serif; width: 280px; margin: 12px; }
+      button { width: 100%; padding: 8px; margin: 8px 0; cursor: pointer; }
+      label { display: flex; gap: 6px; align-items: center; margin: 4px 0 8px; cursor: pointer; }
+      textarea { width: 100%; box-sizing: border-box; height: 64px; font: 11px ui-monospace, monospace; }
+      .muted { color: #666; font-size: 12px; }
+      ul { padding-left: 16px; margin: 4px 0; }
+      details { margin: 8px 0; }
+      summary { cursor: pointer; }
+      #saveIgnore, #savePort { width: auto; padding: 4px 10px; margin: 4px 0; }
+      .warn { background: #fff4d6; border: 1px solid #e6c15a; color: #5c4300; border-radius: 6px; padding: 6px 8px; margin: 6px 0; font-size: 12px; }
+      .warn[hidden] { display: none; }
+      #port { width: 70px; }
+    </style>
+  </head>
+  <body>
+    <label><input type="checkbox" id="all" /> <b>Watch every site</b></label>
+    <div class="warn" id="allWarn" hidden>
+      Every site you open is saved as text on this computer, including email, chat and admin panels.
+      Use <b>Stop watching this site</b> on any site you don't want captured.
+    </div>
+    <div><b id="host"></b> <span id="state" class="muted"></span></div>
+    <div class="warn" id="sensitiveWarn" hidden>
+      This site may show private information (email, banking, payments, HR or passwords).
+      If you don't want it saved, click <b>Stop watching this site</b>.
+    </div>
+    <button id="toggle"></button>
+    <label class="muted"><input type="checkbox" id="fields" /> Include text boxes on this site (never passwords or card fields)</label>
+    <details>
+      <summary class="muted">Ignore lines on this site</summary>
+      <div class="muted">One pattern per line (regular expression). Matching lines are left out.</div>
+      <textarea id="ignore" placeholder="^Typing…$"></textarea>
+      <button id="saveIgnore">Save</button> <span id="saved" class="muted"></span>
+    </details>
+    <div class="muted">Server: <span id="status">checking…</span></div>
+    <details>
+      <summary class="muted">Server port</summary>
+      <div class="muted">Must match BROWSER_WATCH_PORT on the server (default 7878).</div>
+      <input id="port" type="number" min="1" max="65535" /> <button id="savePort">Save</button>
+    </details>
+    <div class="muted" style="margin-top:8px" id="listLabel"></div>
+    <ul id="list" class="muted"></ul>
+    <div class="muted">Tabs opened before the extension was reloaded need a reload.</div>
+    <script src="popup.js"></script>
+  </body>
+</html>
